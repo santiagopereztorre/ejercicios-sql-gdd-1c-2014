@@ -1,0 +1,2 @@
+-- Mostrar para el o los artículos que tengan stock en todos los depósitos, nombre del 
+-- artículo, stock del depósito que más stock tiene. SELECT prod_codigo, prod_detalle, (SELECT TOP 1 stoc_detalle FROM dbo.STOCK s1 WHERE s1.stoc_producto = prod_codigo ORDER BY stoc_cantidad)FROM dbo.Producto	INNER JOIN dbo.STOCK ON prod_codigo = stoc_producto	INNER JOIN dbo.DEPOSITO ON stoc_deposito = depo_codigoGROUP BY prod_codigo, prod_detalleHAVING COUNT(stoc_deposito) = (SELECT COUNT(*) FROM dbo.DEPOSITO)

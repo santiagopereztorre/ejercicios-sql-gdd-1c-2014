@@ -1,0 +1,5 @@
+-- Mostrar nombre de producto, cantidad de clientes distintos que lo compraron, 
+-- importe promedio pagado por el producto, cantidad de depósitos en lo cuales hay 
+-- stock del producto y stock actual del producto en todos los depósitos. Se deberán 
+-- mostrar aquellos productos que hayan tenido operaciones en el año 2012 y los datos 
+-- deberán ordenarse de mayor a menor por monto vendido del producto. SELECT 	prod_detalle,	COUNT(DISTINCT fact_cliente),	SUM(item_precio) / COUNT(item_precio),	COUNT(DISTINCT depo_codigo),	SUM(stoc_cantidad)FROM dbo.Item_Factura	INNER JOIN dbo.Factura ON item_tipo = fact_tipo AND item_sucursal = fact_sucursal AND item_numero = fact_numero	LEFT OUTER JOIN dbo.STOCK ON item_producto = stoc_producto	LEFT OUTER JOIN dbo.DEPOSITO ON stoc_deposito = depo_codigo	INNER JOIN dbo.Producto ON item_producto = prod_codigoWHERE EXISTS (SELECT f1.fact_numero FROM dbo.Factura f1 WHERE f1.fact_tipo = item_tipo AND f1.fact_sucursal = item_sucursal AND f1.fact_numero = item_numero AND DATEPART(year, fact_fecha) = 2012)GROUP BY prod_detalleORDER BY SUM(item_cantidad)

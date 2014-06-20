@@ -1,0 +1,2 @@
+-- Mostrar el código, detalle de todos los artículos vendidos en el año 2012 ordenados 
+-- por cantidad vendida. SELECT item_producto, prod_detalleFROM dbo.Item_Factura 	INNER JOIN dbo.Factura ON item_tipo = fact_tipo AND item_sucursal = fact_sucursal AND item_numero = fact_numero	INNER JOIN dbo.Producto ON item_producto = prod_codigoWHERE DATEPART(year, fact_fecha) = 2012ORDER BY item_cantidad

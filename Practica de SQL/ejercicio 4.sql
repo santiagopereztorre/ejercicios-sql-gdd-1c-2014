@@ -1,0 +1,3 @@
+-- Realizar una consulta que muestre para todos los artículos código, detalle y cantidad 
+-- de artículos que lo componen. Mostrar solo aquellos artículos para los cuales el 
+-- stock promedio por depósito sea mayor a 100. SELECT prod_codigo, prod_detalle, COUNT(comp_componente) 'Cantidad de articulos'FROM dbo.Producto	LEFT OUTER JOIN dbo.Composicion ON prod_codigo = comp_producto	FULL OUTER JOIN dbo.STOCK ON prod_codigo = stoc_productoGROUP BY prod_codigo, prod_detalleHAVING SUM(stoc_cantidad) / COUNT(stoc_deposito) > 100

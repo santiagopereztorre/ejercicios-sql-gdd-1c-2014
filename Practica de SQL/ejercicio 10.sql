@@ -1,0 +1,3 @@
+-- Mostrar los 10 productos mas vendidos en la historia y también los 10 productos 
+-- menos vendidos en la historia. Además mostrar de esos productos, quien fue el 
+-- cliente que mayor compra realizo. SELECT *FROM dbo.Item_FacturaWHERE 	item_producto IN (	SELECT TOP 10 item_producto 	FROM dbo.Item_Factura	ORDER BY SUM(item_cantidad) DESC	)OR	item_producto IN (	SELECT TOP 10 item_producto, SUM(item_cantidad) 	FROM dbo.Item_Factura	ORDER BY SUM(item_cantidad) ASC	)

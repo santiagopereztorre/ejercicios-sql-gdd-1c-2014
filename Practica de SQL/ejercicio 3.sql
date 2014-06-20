@@ -1,0 +1,3 @@
+-- Realizar una consulta que muestre código de producto, nombre de producto y el 
+-- stock total, sin importar en que deposito se encuentre, los datos deben ser ordenados 
+-- por nombre del artículo de menor a mayor. SELECT prod_codigo, prod_detalle, SUM(stoc_cantidad) 'Stock total'FROM dbo.Producto	INNER JOIN dbo.STOCK ON prod_codigo = stoc_productoGROUP BY prod_codigo, prod_detalleORDER BY prod_detalle
