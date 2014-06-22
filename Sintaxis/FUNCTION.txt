@@ -1,0 +1,15 @@
+CREATE FUNCTION [ <nombre_de_schema>. ] <nombre_de_funcion>
+( 
+	[ { @<nombre_de_parametro> [ AS ] [ <nombre_de_schema>. ] <tipo_del_parametro> [ = <valor_default> ] [ READONLY ] } ]
+)
+RETURNS <tipo_de_retorno>
+BEGIN 
+        <cuerpo_de_la_funcion> 
+        RETURN <expresion_escalar>
+END
+
+#Simbolos
+[ ] => Opcional
+{ } => Las veces que quiera, separados por comas
+< > => Reemplazar por valor
+MAYUSCULAS => Palabras reservadas

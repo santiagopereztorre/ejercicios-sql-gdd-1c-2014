@@ -1,0 +1,23 @@
+DECLARE <nombre_del_cursor> [ INSENSITIVE ] [ SCROLL ] CURSOR 
+    FOR <consulta_select> 
+    [ FOR { READ ONLY | UPDATE [ OF <nombre_de_la_columna> ] } ]
+	 
+OPEN <nombre_del_cursor>
+
+FETCH NEXT FROM <nombre_del_cursor>
+INTO @<nombre_param_1>, @<nombre_param_2>
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    <cuerpo_del_while>
+    FETCH NEXT FROM <nombre_del_cursor>
+    INTO @<nombre_param_1>, @<nombre_param_2>
+END 
+CLOSE <nombre_del_cursor>;
+DEALLOCATE <nombre_del_cursor>;
+
+#Simbolos
+[ ] => Opcional
+{ } => Las veces que quiera, separados por comas
+< > => Reemplazar por valor
+MAYUSCULAS => Palabras reservadas

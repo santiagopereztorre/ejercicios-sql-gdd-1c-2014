@@ -1,0 +1,11 @@
+CREATE  [ PROC | PROCEDURE ] [ <nombre_de_schema>. ] <nombre_del_procedimiento> 
+    [ { @<nombre_de_parametro> [ AS ] [ <nombre_de_schema>. ] <tipo_del_parametro> [ VARYING ] [ = <valor_default> ] [ OUT | OUTPUT ] [READONLY] ] 
+BEGIN 
+        <cuerpo_del_procedimiento>
+END
+
+#Simbolos
+[ ] => Opcional
+{ } => Las veces que quiera, separados por comas
+< > => Reemplazar por valor
+MAYUSCULAS => Palabras reservadas
